@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Pour vous CONNECTER sur notre site, c'est ici!" />
+    <meta name="keywords" content="login, signup, compte, email">
+    <meta name="author" lang="fr" content="Sanjay Gros-Desormeaux et Emilie Trichanh">
+    <link rel="stylesheet" type="text/css" href="login.css"_media="screen"/>
+    <title>Login</title>
+</head>
+<body>
+
+    <input type="text" placeholder="Nom" id="nom" oninput="vnom()">
+    <span id="alertenom"></span>
+    </br>
+    <input type="text" placeholder="mot de passe" id="mdp" oninput="vmdp()">
+    <span id="alertemdp"></span>
+    </br>
+    <button name="valider" onclick="valider()">Valider</button>
+    <span id="alerte"></span>
+
+<!--Javascript-->
+<script type="text/javascript">
+ var nbnom = document.getElementById('nom');
+ var nbmdp = document.getElementById('mdp');
+
+        function vnom() {
+        if (nbnom.value == "") {
+            document.getElementById('alertenom').style.color = 'red';
+            document.getElementById('alertenom').innerHTML = "Entrez votre nom";
+        }
+
+        else {
+            document.getElementById('alertenom').style.color = 'green';
+            document.getElementById('alertenom').innerHTML = "C'est tout bon pour le nom";
+        }
+        }
+
+        function vmdp() {
+        /*switch(nbmdp) {
+            case nbmdp=="":
+                document.getElementById('alertemdp').style.color = 'red';
+                document.getElementById('alertemdp').innerHTML = "Entrez votre mot de passe";
+                break;
+            case nbmdp > 6 && nbmdp< 12:
+                document.getElementById('alertemdp').style.color = 'green';
+                document.getElementById('alertemdp').innerHTML = "Parfait";
+                break;
+            default:
+                "test";
+            } 
+        }*/
+        if (nbmdp.value=="") {
+            document.getElementById('alertemdp').style.color = 'red';
+            document.getElementById('alertemdp').innerHTML = "Entrez votre mot de passe";
+        }
+
+        else if (nbmdp.value<=12 && nbmdp.value>=6){
+            document.getElementById('alertemdp').style.color = 'green';
+            document.getElementById('alertemdp').innerHTML = "Parfait";
+        }
+
+        else {
+            document.getElementById('alertemdp').style.color = 'red';
+            document.getElementById('alertemdp').innerHTML = "Votre mot de passe doit contenir 6 à 12 carctères";
+        }
+        }
+
+        function valider() {
+            if (nbnom.value == "" || nbmdp.value == "") {
+                document.getElementById('alerte').style.color = 'red';
+                document.getElementById('alerte').innerHTML = "Vérifiez que vous avez rempli tous les champs"
+            }
+
+            else {
+                document.getElementById('alerte').style.color = 'green';
+                document.getElementById('alerte').innerHTML = "On peut passer à la suite";
+            }
+        }
+
+        
+</script>
+    
+</body>
+</html>
